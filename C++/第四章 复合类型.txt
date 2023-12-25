@@ -1,0 +1,80 @@
+数组可以存储多个同类型的值
+一种特殊的数组可以存储字符串
+结构体可以存储多个不同类型的值
+指针可以将数据的位置告诉计算机的变量
+
+数组array
+数组类型  数组名  元素数
+数组初始化可以使用{}方式初始化称为列表初始化
+提供的值可以少于数组的元素数目，其他元素将被设置为0
+C++标准模板库（STL）实现了vector,C++11新增了模板类array
+
+字符串
+C-style string和基于string类库的方法
+C-style以\0结尾
+char cat[8] = {'f','s','s','q','a','s','s','\0'};
+char cat[8] = "fssqass";
+strlen()返回的是存储在数组中的字符串长度。  size()
+strcpy()将字符串赋值到字符数组中          strncat()
+strcat()将字符串附加到字符数组末尾        strncpy()
+
+
+cin使用空白(空格、制表符、换行符)来确定字符串的结束位
+getline()将丢弃换行符            cin.getline(名称,字符数)
+get()将换行符保留在输入序列中     cin.get(名称,字符数)
+cin.get并不会读取并丢弃换行符，而是将其保留在输入队列中
+可以使用cin.get()来处理换行符。
+因为cin会将换行符保留在输入队列，再使用cin.getchar()会直接认为是空行而结束，我们需要使用cin.get()来丢弃换行符
+
+string类
+包含头文件#ingclude<string>
+string类位于名称空间std,必须使用using
+可以将一个string对象赋给另一个string对象
+可以使用运算符+将两个string对象合并起来，以及+=
+
+结构体
+struct inflatable
+{
+	char name[20];
+	float volume;
+	double price;
+}
+可以使用成员运算符(.)来访问各个成员
+可以让结构作为参数传递给函数，也可以让函数返回一个结构
+也可以创建一个结构数组
+位字段：冒号，冒号后面是一个数字，指定了使用的位数。
+unsigned int SN : 4;
+
+
+共用体
+可同时存储int、long、double,只能存储int、long、double。
+
+枚举
+enum提供了创建符号常量的方式
+enum a{red,orange,yellow}
+可以将取值范围中的任何整数值赋给枚举变量
+
+指针
+地址运算符（&）就可以获得它的位置
+*运算符被称为间接值或解除引用运算符
+指针不是整形，不能直接赋值，需要强制转换
+使用指针实现程序运行时分配内存
+在c语言中使用malloc来分配内存，在c++中使用new来分配内存。
+常规的变量被存储在栈(stack)里，new被存储在堆(heap)
+使用delete来释放内存
+使用new来创建动态数组
+通过声明来创建数组，不管程序是否使用了数组，它都占用了内存。
+而new，运行时才创建。
+int* psome = new int[10];
+delete[] psome;
+数组和指针在c和c++中基本等价
+将指针变量加1后，增加的量等于它指向的类型的字节数
+数组名第一个元素的地址
+
+模板类vector
+vactor<typeName> vt(n_elem)
+再插入动态调整长度
+
+模板类array(c++11)
+长度固定，也是用栈
+array<int,5> ai;
